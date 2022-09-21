@@ -1,23 +1,28 @@
-import { useState } from 'react'
-import { v4 as uuid } from 'uuid'
+import { useState, useEffect } from 'react'
 import './App.css'
 import Nota from './components/Nota'
 import NuevaNota from './components/NuevaNota'
 import { motion } from "framer-motion"
 import DarkButton from './components/DarkButton'
 
-const miLista = [
-  {
-    id: uuid(),
-    content: "hola mundo",
-    completed: false,
-  },
-]
+
+const KEY = "notas"
 
 
 function App() {
-  const [todos, setTodos] = useState(miLista)
+  const [todos, setTodos] = useState([])
   const [active, setActive] = useState(true)
+
+  useEffect(()=>{
+
+    const data = JSON.parse(localStorage.getItem(KEY))
+
+    if (Array.isArray(data)) setTodos(data)
+    
+  },[])
+  useEffect(()=>{
+    localStorage.setItem(KEY, JSON.stringify(todos))
+  },[todos])
 
   const nuevaNota = (nota) => setTodos(prev => [...prev, nota])
 

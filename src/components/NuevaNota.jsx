@@ -47,7 +47,7 @@ export default function NuevaNota({nuevaNota}) {
       animate={active ?{x:0}:{}}
       transition={{duration:0.2}}
       whileTap={{scale:0.90}}
-      className={`p-2 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-100 ${active ? "w-10":"w-40"} rounded-full`} onClick={()=>setActive(!active)}>
+      className={`p-2 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-100 ${active ? "w-10": ""} rounded-full`} onClick={()=>setActive(!active)}>
         {
           active
           ? <span><i className="fa-solid fa-arrow-left"></i></span>
