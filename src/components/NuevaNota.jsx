@@ -30,15 +30,18 @@ export default function NuevaNota({nuevaNota}) {
     <div className='flex gap-2 bg-slate-100 dark:bg-slate-800 p-2'>
   
       <motion.form
-      initial={{x:-250}}
+      initial={{x:-300}}
       animate={active ?{x:0}:{}}
       className={`flex gap-2`} onSubmit={HandleCrearNota}>
+
         <input ref={input} 
-        className='bg-slate-200 dark:bg-slate-700 dark:text-slate-50 p-2 rounded-full outline-sky-400' type="text" required/>
+        className={`bg-slate-200 dark:bg-slate-700 dark:text-slate-50 p-2 rounded-full outline-sky-400`} type="text" required/>
+        
         <motion.button 
         transition={{duration:0.2}}
         whileTap={{scale:0.90}}
         className='p-2 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-100 w-10 rounded-full' type='submit'><i className="fa-solid fa-check"></i></motion.button>
+      
       </motion.form>
       
 
@@ -51,7 +54,7 @@ export default function NuevaNota({nuevaNota}) {
         {
           active
           ? <span><i className="fa-solid fa-arrow-left"></i></span>
-          : <span><i className="fa-solid fa-plus pr-2"></i>Nueva nota</span>
+          : <span className='flex items-center'><i className="fa-solid fa-plus pr-2"></i>Nueva nota</span>
         }
       </motion.button>
     </div>

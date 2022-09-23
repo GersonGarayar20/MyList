@@ -50,16 +50,16 @@ export default function Nota({id, completed, content, eliminar, marcar, rename})
     layout
     animate={borrar?{x:1000}:{}}
     transition={{duration:0.2}}
-    className='hover:shadow-md dark:hover:shadow-slate-800 m-2 bg-slate-50 dark:bg-slate-900 flex justify-between'>
-      <div className='flex items-center'>
+    className='hover:shadow-md dark:hover:shadow-slate-800 m-2 bg-slate-50 dark:bg-slate-900 flex justify-between gap-2'>
+      <div className='flex items-center w-4/5'>
         <input className='m-2' type="checkbox" onChange={handleMarcar} checked={completed}/>
         {
           active
-          ? <input className='bg-sky-100 dark:text-slate-900 p-2 rounded-full' type="text" onChange={handleChange} value={texto}/>
-          : <p className='p-2 dark:text-slate-50'>{content}</p>
+          ? <input className='bg-sky-100 dark:text-slate-900 p-2 rounded-full w-full' type="text" onChange={handleChange} value={texto}/>
+          : <p className='p-2 overflow-hidden break-words dark:text-slate-50'>{content}</p>
         }
       </div>
-      <div>
+      <div className='flex flex-grow justify-end overflow-hidden'>
         <Boton
         inicial={200}
         active={active}
